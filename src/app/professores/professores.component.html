@@ -1,0 +1,39 @@
+<div *ngIf="profSelecionado">
+  <div class="row mt-5">
+    <div class="col-11">
+      <app-titulo [titulo]="'Professor: ' + profSelecionado.id"></app-titulo>
+    </div>
+    <div class="col mt-2">
+      <button class="btn btn-warning" (click)="voltar()">Voltar</button>
+    </div>
+  </div>
+  <form>
+    <div class="mb-3">
+      <label for="Nome" class="form-label">Nome</label>
+      <input type="text" class="form-control" id="Nome" placeholder="Nome" aria-label="name" aria-describedby="basic-addon1" value="{{profSelecionado.nome}}">
+    </div>
+    <div class="mb-3">
+      <label for="Disciplina" class="form-label">Disciplina</label>
+      <input type="text" class="form-control" id="Disciplina" placeholder=Disciplina aria-label="Disciplina" aria-describedby="basic-addon1" value="{{profSelecionado.disciplina}}">
+    </div>
+  </form>
+</div>
+<div *ngIf="!profSelecionado" class="mt-4">
+  <app-titulo [titulo]="titulo"></app-titulo>
+  <table class="table table-hover">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Disciplina</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let prof of professores" style="cursor: pointer;" (click)="profSelect(prof)">
+        <th scope="row">{{prof.id}}</th>
+        <td>{{prof.nome}}</td>
+        <td>{{prof.disciplina}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,5 @@
+export class Aluno {
+    id: number | undefined;
+    nome: string | undefined;
+    disciplina: string | undefined;
+}
